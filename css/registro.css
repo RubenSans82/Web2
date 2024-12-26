@@ -1,0 +1,81 @@
+body>div {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 1;
+    z-index: 2;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url("../img/aprender-html.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    /* Ajusta el valor de opacidad según tus necesidades */
+    z-index: -1;
+    /* Coloca la imagen detrás del contenido */
+}
+
+form {
+    border: 1px solid blueviolet;
+    border-radius: 5%;
+    background-color: cyan;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: center;
+    padding: 10px;
+}
+
+form input {
+    font-size: 30px;
+    width: 80%;
+}
+
+#nacimiento {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 30px;
+    margin: 20px;
+    padding: 10px;
+    width: 83%;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Apunta el cursor como una mano */
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo cuando el botón está deshabilitado */
+button:disabled {
+    background-color: #b0b0b0;
+    /* Fondo gris cuando está deshabilitado */
+    color: #888;
+    /* Texto gris */
+    cursor: not-allowed;
+    /* Cambia el cursor para indicar que no es interactivo */
+    opacity: 0.6;
+    /* Añade opacidad para dar un efecto visual de deshabilitado */
+}
+
+/* Estilo cuando el botón está en foco y habilitado */
+button:not(:disabled):focus {
+    outline: 2px solid #2196F3;
+    /* Añade un borde azul cuando el botón está en foco */
+}
+
+@media (max-width: 768px) {
+    body>div {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+
+    }
+}

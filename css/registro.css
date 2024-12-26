@@ -30,6 +30,10 @@ form {
     padding: 10px;
 }
 
+form a {
+    font-size: small;
+}
+
 form input {
     font-size: 30px;
     width: 80%;
@@ -78,4 +82,10 @@ button:not(:disabled):focus {
         text-align: center;
 
     }
+}
+
+#aviso{
+    font-size: small;
+    color: red;
+    display: none;
 }

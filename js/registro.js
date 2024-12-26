@@ -18,7 +18,7 @@ confirmPassword.addEventListener('input', checkPasswords);
 */
 
 
- 
+
 
 /*
 // Otra manera
@@ -32,14 +32,21 @@ confirmPassword.onchange=function(){
     console.log(txtPass2)
 }
 */
+password.oninput = checkPasswords
+confirmPassword.oninput = checkPasswords
+
 function checkPasswords() {
+
+    var aviso = document.getElementById('aviso')
     if (password.value === confirmPassword.value && password.value !== '') {
         registerBtn.disabled = false; // Habilitar el botón si las contraseñas coinciden
+        password.style.borderColor = 'green';
+        confirmPassword.style.borderColor = 'green';
+        aviso.style.display = "none"
     } else {
         registerBtn.disabled = true; // Deshabilitar el botón si no coinciden
+        password.style.borderColor = 'red';
+        confirmPassword.style.borderColor = 'red';
+        aviso.style.display = "block"
     }
 }
-
-password.oninput=checkPasswords
-
-confirmPassword.oninput=checkPasswords

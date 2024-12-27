@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web2 - Contacto</title>
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+
+<body>
+    <div>
+         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
+        <form action="" method="get">
+            <h2>Contacto</h2>
+            <label for="nombre">Nombre</label>
+            <input required type="text" id="nombre">
+            <label for="email">Email</label>
+            <input required type="email" id="email">
+            <label for="mensaje">Mensaje</label>
+            <textarea required id="mensaje"></textarea>
+            <div class="condiciones">
+            <input type="checkbox" name="" id="privacidad">
+            <label id="politica" for="politica">Acepto el envio de mis datos para realizar la consulta</label>
+            </div>
+            <button id="enviar" type="submit" disabled>Enviar</button>
+            </form>
+    </div>
+
+    <script src="js/contacto.js"></script>
+
+</body>
+
+</html>

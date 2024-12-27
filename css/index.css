@@ -8,10 +8,26 @@ header {
     height: 100px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
 }
+
+header img {
+    width: 100px;  /* Ajusta el tamaño del logo (puedes cambiar el valor) */
+    height: auto;  /* Mantiene la proporción de la imagen */
+}
+
+header h1 {
+    flex-grow: 1;  /* Hace que el h1 ocupe el espacio restante */
+    text-align: center;  /* Centra el texto dentro del h1 */
+    font-size: 60px;
+}
+
+
 
 nav {
     height: 50px;
+    background-color: rgb(181, 134, 226);
 }
 
 section {
@@ -26,6 +42,8 @@ nav ul {
     display: flex;
     justify-content: right;
     list-style-type: none;
+    margin-top: 0px;
+
 }
 
 nav ul li {

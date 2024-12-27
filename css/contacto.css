@@ -29,9 +29,13 @@ form {
 }
 
 form input {
-    font-size: 15px;
+    font-size: 30px;
     width: 80%;
-    height: 30px;
+}
+
+form div {
+    font-size: 30px;
+    width: 80%;
 }
 
 button {
@@ -41,13 +45,44 @@ button {
     width: 83%;
     background-color: blueviolet;
     color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Apunta el cursor como una mano */
+    transition: background-color 0.3s ease;
 }
 
-#error-message {
-    color: red;
-    display: none;
-    font-size: medium;
+/* Estilo cuando el botón está deshabilitado */
+button:disabled {
+    background-color: #b0b0b0;
+    /* Fondo gris cuando está deshabilitado */
+    color: #888;
+    /* Texto gris */
+    cursor: not-allowed;
+    /* Cambia el cursor para indicar que no es interactivo */
+    opacity: 0.6;
+    /* Añade opacidad para dar un efecto visual de deshabilitado */
 }
+
+/* Estilo cuando el botón está en foco y habilitado */
+button:not(:disabled):focus {
+    outline: 2px solid #2196F3;
+    /* Añade un borde azul cuando el botón está en foco */
+}
+
+#mensaje {
+    height: 110px;
+    width: 80%;
+}
+
+#politica {
+    font-size: xx-small;
+}
+
+#privacidad{
+    width: 10px;
+}
+
+
 
 @media (max-width: 768px) {
     body>div {

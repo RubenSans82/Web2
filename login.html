@@ -10,18 +10,24 @@
 
 <body>
     <div>
-         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        <form action="" method="get">
+        <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
+        <form id="loginForm" action="" method="get">
             <label for="usuario">Usuario</label>
-            <input type="text" name="" id="usuario">
+            <input type="text" id="usuario" required>
+
             <label for="password">Password</label>
-            <input type="password" name="" id="password">
-            <button>Login</button>
+            <input type="password" id="password" required>
+
+            <button type="submit">Login</button>
+
+            <p id="error-message">Usuario o contraseña incorrectos</p>
+
             <a target="_self" rel="nofollow" href="registro.html">Crea tu usuario</a>
+
         </form>
     </div>
 
-
+    <script src="js/login.js"></script>
 </body>
 
 </html>

@@ -12,10 +12,13 @@ header {
     background-color: blueviolet;
 }
 
-header img {
-    width: 100px;  /* Ajusta el tamaño del logo (puedes cambiar el valor) */
-    height: auto;  /* Mantiene la proporción de la imagen */
+.imgLogo {
+    margin-left: 30px;
+    height: auto;
+    width: 90px;
+    border-radius: 50%;
 }
+
 
 header h1 {
     flex-grow: 1;  /* Hace que el h1 ocupe el espacio restante */

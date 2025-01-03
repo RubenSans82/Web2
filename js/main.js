@@ -42,17 +42,7 @@ const today = new Date().toISOString().split('T')[0];
 // Asignar la fecha al campo de tipo date
 document.getElementById('fecha').value = today;
 
-function getMaxId() {
-    var table = document.querySelector('table tbody');
-    var maxId = 0;
-    for (var i = 0; i < table.rows.length; i++) {
-        var id = parseInt(table.rows[i].cells[0].innerText);
-        if (id > maxId) {
-            maxId = id;
-        }
-    }
-    return maxId;
-}
+
 
 var formulario = document.getElementById('formIncidencias');
 formulario.addEventListener('submit', function(event) {
@@ -97,3 +87,14 @@ formulario.addEventListener('submit', function(event) {
 
 
 
+function getMaxId() {
+    var table = document.querySelector('table tbody');
+    var maxId = 0;
+    for (var i = 0; i < table.rows.length; i++) {
+        var id = parseInt(table.rows[i].cells[0].innerText);
+        if (id > maxId) {
+            maxId = id;
+        }
+    }
+    return maxId;
+}

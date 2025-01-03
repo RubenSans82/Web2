@@ -158,6 +158,7 @@ header div {
     flex-grow: 1;
     transition: margin-left 0.3s ease;
     /* Transición para el contenido */
+    overflow: auto;
 }
 
 /* Ajuste cuando el sidebar está expandido */
@@ -169,6 +170,27 @@ header div {
 
 #sidebar:hover li {
     padding: 15px;
+}
+
+#formIncidencias {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    border: 2px solid white;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#fecha {
+
+    width: 100px;
+}
+
+#agregar {
+    width: 100px;
+    margin-top: 10px;
+  
 }
 
 table {

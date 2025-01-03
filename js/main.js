@@ -23,3 +23,15 @@ document.addEventListener('click', function(event) {
         sidebar.classList.remove('show');
     }
 });
+
+var papeleras=document.getElementsByClassName('fa-trash');
+
+for (var i = 0; i < papeleras.length; i++) {
+    papeleras[i].addEventListener('click', function() {
+        var row = this.closest('tr');
+        var confirmar = confirm('¿Estás seguro de que quieres borrar este registro?');
+        if (confirmar) {
+            row.parentNode.removeChild(row);
+        }
+    });
+}

@@ -10,18 +10,18 @@
 
 <body>
     <div> 
-        <a href="index.html"><img class="imgLogo" src="img/logo.png" alt="Logo"></a>
-        <form action="" method="get">
+        <a href="index.php"><img class="imgLogo" src="img/logo.png" alt="Logo"></a>
+        <form action="procesar2.php" method="post">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" required>
+            <input type="text" name="nombre" id="nombre" required>
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" required>
+            <input type="text" name="apellido" id="apellido" required>
             <label for="email">Email</label>
-            <input type="email" id="email" required>
+            <input type="email" name="email" id="email" required>
             <label for="nacimiento">Fecha de nacimiento</label>
-            <input type="date" id="nacimiento">
+            <input type="date" name="fecha" id="nacimiento">
             <label for="password">Password</label>
-            <input type="password" id="password">
+            <input type="password" name="password" id="password">
             <label for="password2">Password</label>
             <input type="password" id="password2">
             <span id="aviso">Las contraseñas deben coincidir</span>

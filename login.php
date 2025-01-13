@@ -10,7 +10,7 @@
 
 <body>
     <div>
-        <a href="index.html"><img class="imgLogo" src="img/logo.png" alt="Logo"></a>
+        <a href="index.php"><img class="imgLogo" src="img/logo.png" alt="Logo"></a>
         <form id="loginForm" action="" method="get">
             <label for="usuario">Usuario</label>
             <input type="text" id="usuario" required>
@@ -22,7 +22,7 @@
 
             <p id="error-message">Usuario o contraseña incorrectos</p>
 
-            <a target="_self" rel="nofollow" href="registro.html">Crea tu usuario</a>
+            <a target="_self" rel="nofollow" href="registro.php">Crea tu usuario</a>
 
         </form>
     </div>

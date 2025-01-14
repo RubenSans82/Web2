@@ -1,3 +1,31 @@
+<?php
+ if(isset($_POST["nombre"])){
+    include("conexiondb.php");
+    try {
+        // Preparar y ejecutar la consulta SQL
+        $sql = "INSERT INTO usuarios (nombre, apellido, email, fecha, password) 
+                VALUES (:nombre, :apellido, :email, :fecha, :password)";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bindParam(':nombre', $_POST["nombre"]);
+        $stmt->bindParam(':apellido', $_POST["apellido"]);
+        $stmt->bindParam(':email', $_POST["email"]);
+        $stmt->bindParam(':fecha', $_POST["fecha"]);
+        // Encriptar la contraseña antes de guardarla
+        $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $stmt->bindParam(':password', $hashed_password);
+        //$stmt->bindParam(':password', $_POST["password"]);
+        $stmt->execute();
+    
+        echo "Registro insertado exitosamente";
+    
+        // Redirigir a la página de login   
+        header("Location: login.php");
+    } catch (PDOException $e) {
+        echo "Conexión fallida: " . $e->getMessage();
+    }
+ }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,7 +39,7 @@
 <body>
     <div> 
         <a href="index.php"><img class="imgLogo" src="img/logo.png" alt="Logo"></a>
-        <form action="procesar2.php" method="post">
+        <form action="" method="post">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" required>
             <label for="apellido">Apellido</label>
@@ -26,7 +54,7 @@
             <input type="password" id="password2">
             <span id="aviso">Las contraseñas deben coincidir</span>
             <button type="submit" id="registerBtn" disabled>Registrarse</button>
-            <a target="_self" rel="nofollow" href="login.html">Si ya tienes usuario Logeate</a>
+            <a target="_self" rel="nofollow" href="login.php">Si ya tienes usuario Logeate</a>
 
         </form>
     </div>

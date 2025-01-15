@@ -5,7 +5,7 @@ if (isset($_POST["email"])) {
     $password = $_POST["password"];
 
     // Preparar y ejecutar la consulta para obtener el hash de la contraseña almacenada
-    $sql = "SELECT password,id,nombre,apellido FROM usuarios WHERE email = :email";
+    $sql = "SELECT password,id,nombre,apellido,foto FROM usuarios WHERE email = :email";
     $stmt = $conexion->prepare($sql);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
@@ -18,6 +18,7 @@ if (isset($_POST["email"])) {
         $_SESSION['idusuario'] = $result['id'];
         $_SESSION['nombre'] = $result['nombre'];
         $_SESSION['apellido'] = $result['apellido'];
+        $_SESSION['foto'] = $result['foto'];
         header("Location: main.php");
     } else {
         $error = "Email o contraseña incorrectos";

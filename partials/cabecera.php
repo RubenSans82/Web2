@@ -3,6 +3,11 @@ session_start();
 if (!isset($_SESSION['usuario'])) {
     header('Location: login.php');
 }
+
+$foto=$_SESSION["foto"];
+if ($foto== ""){
+    $foto="img/usuario.png";
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +29,10 @@ if (!isset($_SESSION['usuario'])) {
 
 
         <div>
-            <img class="imgUser" src="img/usuario.png" alt="Usuario">
+            <img class="imgUser" src="<?php echo $foto ?>" alt="Usuario">
             <div id="user">
                 <ul>
-                    <li><a href="">Datos de usuario</a></li>
+                    <li><a href="datos_usuario.php">Datos de usuario</a></li>
                     <li><a href="logout.php">Cerrar sesion</a></li>
 
                 </ul>

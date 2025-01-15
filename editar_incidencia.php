@@ -9,6 +9,7 @@ if (isset($_POST["id"])) {
     $fecha = $_POST['fecha'];
     $descripcion = $_POST['descripcion'];
 
+
     $sql = "UPDATE incidencias SET fecha = :fecha, descripcion = :descripcion WHERE id = :id";
     $stm = $conexion->prepare($sql);
     $stm->bindParam(':fecha', $fecha);
@@ -58,4 +59,4 @@ if(!$row){
 
 </html>
 
-<?php
+

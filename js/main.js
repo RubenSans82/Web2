@@ -24,6 +24,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
+/* 
 var papeleras = document.getElementsByClassName('fa-trash');
 
 for (var i = 0; i < papeleras.length; i++) {
@@ -98,3 +99,5 @@ function getMaxId() {
     }
     return maxId;
 }
+
+*/

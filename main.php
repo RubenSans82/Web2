@@ -1,67 +1,22 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['usuario'])){
-        header('Location: login.php');
-    }
+include('conexiondb.php');
+$sql = 'select * from incidencias';
+$result = $conexion->query($sql);
 ?>
 
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web2 - Main</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-    <header style="width: 100%;">
-        <img class="imgLogo" src="img/logo.png" alt="Logo">
-
-
-        <div>
-            <img class="imgUser" src="img/usuario.png" alt="Usuario">
-            <div id="user">
-                <ul>
-                    <li><a href="">Datos de usuario</a></li>
-                    <li><a href="logout.php">Cerrar sesion</a></li>
-                    
-                </ul>
-
-            </div>
-        </div>
-
-    </header>
-    <main>
-        <aside>
-            <button id="menuButton">
-                <img src="img/menu.jpg" alt="Menu">
-            </button>
-            <div id="sidebar">
-                <ul>
-                    <li><a href="#seccion1"><i class="fa-solid fa-cart-shopping"></i> Pedidos</a></li>
-                    <li><a href="#seccion2"><i class="fa-solid fa-file-invoice"></i> Facturas</a></li>
-                    <li><a href="#incidencias"><i class="fa-solid fa-triangle-exclamation"></i> Incidencias</a></li>
-                    <li><a href="#seccion4"><i class="fa-solid fa-calendar"></i> Calendario</a></li>
-                    <li><a href="#seccion5"><i class="fa-solid fa-newspaper"></i> Presupuestos</a></li>
-                </ul>
-            </div>
-        </aside>
+<?php
+include('partials/cabecera.php');
+?>
         <div id="content">
             <h2 id="incidencias">Listado de Incidencias</h2>
             <div class="incidencias">
-            <form id="formIncidencias" action="">
-                <label for="fecha">Fecha</label>
-                <input type="date" name="fecha" id="fecha">
-                <label for="descripcion">Descripción</label>
-                <textarea required name="descripcion" id="descripcion" cols="100%" rows="3"></textarea>
-                <button type="submit" id="agregar">Agregar</button>
-            </form>
+                <form id="formIncidencias" action="nueva_incidencia.php" method="post">
+                    <label for="fecha">Fecha</label>
+                    <input required type="date" name="fecha" id="fecha">
+                    <label for="descripcion">Descripción</label>
+                    <textarea required name="descripcion" id="descripcion" cols="100%" rows="3"></textarea>
+                    <button type="submit" id="agregar">Agregar</button>
+                </form>
             </div>
             <div class="listado">
                 <table id="tabla">
@@ -72,51 +27,19 @@
                         <th>Operaciones</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>01/01/2021</td>
-                            <td>Problema con el servidor</td>
+                        <?php
+                        while ($row = $result->fetch()) {
+                            echo "<tr>
+                            <td>" . $row['id'] . "</td>
+                            <td>" . $row['fecha'] . "</td>
+                            <td>" . $row['descripcion'] . "</td>
                             <td>
-                                <button><i class="fa-solid fa-pen-to-square"></i></i></button>
-                                <button><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>02/01/2021</td>
-                            <td>Problema con el servidor</td>
-                            <td>
-                                <button><i class="fa-solid fa-pen-to-square"></i></i></button>
-                                <button><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>03/01/2021</td>
-                            <td>Problema con el servidor</td>
-                            <td>
-                                <button><i class="fa-solid fa-pen-to-square"></i></i></button>
-                                <button><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>04/01/2021</td>
-                            <td>Problema con el servidor</td>
-                            <td>
-                                <button><i class="fa-solid fa-pen-to-square"></i></i></button>
-                                <button><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>05/01/2021</td>
-                            <td>Problema con el servidor</td>
-                            <td>
-                                <button><i class="fa-solid fa-pen-to-square"></i></i></button>
-                                <button><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>
+                                <a href='editar_incidencia.php?idincidencia=" . $row['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a>
+                                <a href='borrar_incidencia.php?idincidencia=" . $row['id'] . "'><i class='fa-solid fa-trash'></i></a></td>
+                            </tr>";
+                        }
+
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -125,9 +48,9 @@
 
         </section>
     </main>
-    <footer>
-        <p>2021 - Web2</p>
-    </footer>
+<?php
+    include("partials/footer.php");
+    ?>
     <script src="js/main.js"></script>
 </body>
 
